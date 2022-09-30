@@ -1,0 +1,26 @@
+{
+  "name": "desafio-open-food-facts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/filipematiasp/desafio-Open-Food-Facts.git"
+  },
+  "author": "filipe matias",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/filipematiasp/desafio-Open-Food-Facts/issues"
+  },
+  "homepage": "https://github.com/filipematiasp/desafio-Open-Food-Facts#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "joi": "^17.6.2",
+    "mongoose": "^6.6.2"
+  },
+  "type": "module"
+}
