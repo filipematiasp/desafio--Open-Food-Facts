@@ -3,7 +3,7 @@ import mongoose from "mongoose"
 import dotenv from 'dotenv'
 dotenv.config()
 import cors from "cors"
-import productRouter from "./src/routers/productsRouter.js"
+import productRouter from "./routers/productsRouter.js"
 
 
 mongoose.connect('mongodb+srv://UserBank:' + process.env.SECRET_KEY + '@cluster0.wiyb9.mongodb.net/projetos', (error) => {
