@@ -3,15 +3,23 @@ import productValidate from "./validate.js"
 
 async function allProducts (req, res) {
     try {
-        const pageNumber = req.body.pageNumber
-        const nPerPage = req.body.nPerPage
+        const pageNumber = req.body.pageNumber || 1
+        const nPerPage = req.body.nPerPage || 10
 
+         let payload = {}
         let products = await Products.find().skip(pageNumber > 0 ? ((pageNumber - 1) * nPerPage) : 0).limit(nPerPage)
+        let count = await Products.count()
+
+        // console.log('somatorio', count);
+
+        payload.sizeProducts = count
+        payload.products = products
 
         // console.log('segue os produtos', products);
-        res.status(200).send(products)
+        res.status(200).send(payload)
 
     } catch (error) {
+        console.log(error)
         res.status(500).send(error)
     }
 }

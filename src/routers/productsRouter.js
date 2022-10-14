@@ -8,6 +8,7 @@ router.get('/', (req, res) => {
 })
 
 router.get('/products', ProductController.allProducts)
+router.post('/products', ProductController.allProducts)
 router.get('/products/:code', ProductController.findProductByCode)
 router.delete('/products/:code', ProductController.deleteProduct)
 router.get('/insertControlFields', ProductController.insertControlFields)

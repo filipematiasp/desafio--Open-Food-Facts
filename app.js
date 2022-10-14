@@ -1,9 +1,12 @@
 import express, { json } from "express"
 import mongoose from "mongoose"
+import dotenv from 'dotenv'
+dotenv.config()
+import cors from "cors"
 import productRouter from "./src/routers/productsRouter.js"
 
 
-mongoose.connect('mongodb+srv://UserBank:UserBank@cluster0.wiyb9.mongodb.net/projetos', (error) => {
+mongoose.connect('mongodb+srv://UserBank:' + process.env.SECRET_KEY + '@cluster0.wiyb9.mongodb.net/projetos', (error) => {
     if(error) {
         console.log(error)
     } else {
@@ -12,8 +15,10 @@ mongoose.connect('mongodb+srv://UserBank:UserBank@cluster0.wiyb9.mongodb.net/pro
 })
 
 const app = express()
-const port = 3000
+const port = process.env.PORT
 
+
+app.use(cors())
 app.use(express.json())
 app.use('/', productRouter)
 
