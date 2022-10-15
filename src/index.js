@@ -25,3 +25,5 @@ app.use('/', productRouter)
 app.listen(port, () => {
     console.log(`App listen on port: ${port}`)
 })
+
+export default app
