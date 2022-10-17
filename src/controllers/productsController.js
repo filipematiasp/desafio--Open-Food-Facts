@@ -6,7 +6,7 @@ async function allProducts (req, res) {
         const pageNumber = req.body.pageNumber || 1
         const nPerPage = req.body.nPerPage || 10
 
-         let payload = {}
+        let payload = {}
         let products = await Products.find().skip(pageNumber > 0 ? ((pageNumber - 1) * nPerPage) : 0).limit(nPerPage)
         let count = await Products.count()
 
@@ -91,11 +91,16 @@ async function insertControlFields () {
     }
 }
 
+function sum(a, b) {
+    return a + b;
+}
+
 
 export default {
     allProducts,
     findProductByCode,
     deleteProduct,
     insertControlFields,
-    insertProduct
+    insertProduct,
+    sum
 }

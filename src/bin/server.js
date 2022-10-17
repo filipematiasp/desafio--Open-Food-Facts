@@ -1,9 +1,10 @@
-import express, { json } from "express"
+import app from '../app.js'
 import mongoose from "mongoose"
 import dotenv from 'dotenv'
 dotenv.config()
 import cors from "cors"
-import productRouter from "./routers/productsRouter.js"
+
+const port = process.env.PORT || 3000
 
 
 mongoose.connect('mongodb+srv://UserBank:' + process.env.SECRET_KEY + '@cluster0.wiyb9.mongodb.net/projetos', (error) => {
@@ -14,16 +15,8 @@ mongoose.connect('mongodb+srv://UserBank:' + process.env.SECRET_KEY + '@cluster0
     }
 })
 
-const app = express()
-const port = process.env.PORT || 3000
-
-
 app.use(cors())
-app.use(express.json())
-app.use('/', productRouter)
 
 app.listen(port, () => {
     console.log(`App listen on port: ${port}`)
 })
-
-export default app
